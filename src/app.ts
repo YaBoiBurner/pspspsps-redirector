@@ -44,4 +44,6 @@ app.get('/:thing/raw', async (ctx) => {
   return res
 })
 
+app.get('*', (ctx) => ctx.redirect(ctx.env.FALLBACK_REDIRECT))
+
 export default app
