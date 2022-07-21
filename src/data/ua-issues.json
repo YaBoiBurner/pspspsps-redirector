@@ -1,0 +1,6 @@
+{
+  "NEEDS_TWITTER_CARD": ["Twitterbot/1.0"],
+  "NEEDS_TWITTER_PROXY": [
+    "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"
+  ]
+}

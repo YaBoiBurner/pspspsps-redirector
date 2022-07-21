@@ -1,0 +1,34 @@
+name = "pspspsps-redirector"
+main = "src/index.ts"
+compatibility_date = "2022-07-21"
+
+[vars]
+STICKER_API_BASE = "https://wah.rest/sticker"
+TWITTER_CARD_PROXY = "vxtwitter.com"
+FALLBACK_REDIRECT = "https://twitter.com/glitchfur"
+ZTICKER = "https://zticker.xyz"
+BUNNYPAWS = "https://bunnypa.ws/api"
+
+[[kv_namespaces]]
+binding = "REDIRECTS"
+id = "78983c4058a74e6cbc551b8d824dfe26"
+preview_id = "78983c4058a74e6cbc551b8d824dfe26"
+
+[[kv_namespaces]]
+binding = "DISCORD_IDS"
+id = "cb4c69b601ae4f7381bbb1069b378114"
+preview_id = "cb4c69b601ae4f7381bbb1069b378114"
+
+[[kv_namespaces]]
+binding = "SIGNS"
+id = "9dc9dc46279c4c0c80edb704bd0bdc82"
+preview_id = "9dc9dc46279c4c0c80edb704bd0bdc82"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "glitchfur"
+preview_bucket_name = "glitchfur"
+
+# [[services]]
+# binding = "STICKER_API"
+# service = "sticker-api"
