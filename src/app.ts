@@ -1,15 +1,15 @@
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import { etag } from 'hono/etag'
 import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import bread from './routers/bread'
 import sign from './routers/signs'
 import sticker from './routers/sticker'
 import vore from './routers/vore'
-import { Environment } from './types'
-import { redirectKey, yieldImage, yieldVideo } from './stores'
 import { getSticker } from './sticker-api-helper'
-import { cors } from 'hono/cors'
-import { etag } from 'hono/etag'
+import { redirectKey, yieldImage, yieldVideo } from './stores'
+import { Environment } from './types'
 
 const app = new Hono<Environment>()
 

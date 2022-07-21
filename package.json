@@ -20,7 +20,11 @@
   "private": true,
   "scripts": {
     "start": "wrangler dev",
-    "deploy": "wrangler publish"
+    "deploy": "wrangler publish",
+    "lint:eslint": "eslint --max-warnings=0 src",
+    "lint:prettier": "prettier --check '*.{json,js}' 'src/**/*.{js,ts}'",
+    "lint": "concurrently 'npm:lint:*'",
+    "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}'"
   },
   "dependencies": {
     "hono": "^2.0.2"
