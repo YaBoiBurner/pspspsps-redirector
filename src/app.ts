@@ -41,7 +41,11 @@ app.get('/:thing', async (ctx) => {
     res = res || (await yieldImage(ctx, thing))
     res = res || ctx.redirect(ctx.env.FALLBACK_REDIRECT)
 
+    res.headers.append('Cache-Control', 's-maxage=86400')
+
     ctx.executionCtx.waitUntil(cache.put(cacheKey, res.clone()))
+  } else {
+    console.log(`Cache hit for ${cacheKey}`)
   }
 
   return res
