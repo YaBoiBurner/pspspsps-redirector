@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
 import { prettyJSON } from 'hono/pretty-json'
-import { Environment } from '../types'
 
 const sign = new Hono<Environment>()
 

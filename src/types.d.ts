@@ -1,4 +1,4 @@
-export interface Environment {
+interface Environment {
   REDIRECTS: KVNamespace
   DISCORD_IDS: KVNamespace
   SIGNS: KVNamespace

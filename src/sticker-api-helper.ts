@@ -1,5 +1,4 @@
 import { Context } from 'hono'
-import { Environment } from './types'
 
 export async function getSticker<T extends string>(
   ctx: Context<T, Environment>,

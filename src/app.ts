@@ -9,7 +9,6 @@ import sticker from './routers/sticker'
 import vore from './routers/vore'
 import { getSticker } from './sticker-api-helper'
 import { redirectKey, yieldImage, yieldVideo } from './stores'
-import { Environment } from './types'
 
 const app = new Hono<Environment>()
 

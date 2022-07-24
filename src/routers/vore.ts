@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { Environment } from '../types'
 
 const vore = new Hono<Environment>({ strict: false })
 
