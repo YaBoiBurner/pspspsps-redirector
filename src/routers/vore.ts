@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { CACHE } from '../utils'
 
 const vore = new Hono<Environment>({ strict: false })
 
@@ -14,12 +15,26 @@ vore.get('/:id{[0-9]+}', (ctx) => {
 })
 
 vore.get('/:name', async (ctx) => {
-  const { name } = ctx.req.param()
-  const id = await ctx.env.DISCORD_IDS.get(name)
-  if (id) {
-    return ctx.redirect(`${ctx.env.ZTICKER}/glitch_vore/${id}`)
+  const cache = await CACHE()
+  const { origin, pathname } = new URL(ctx.req.url)
+  const cacheURL = new URL(pathname, origin)
+  const cacheKey = cacheURL.toString()
+
+  let res = await cache.match(cacheKey)
+  if (!res) {
+    const { name } = ctx.req.param()
+    const id = await ctx.env.DISCORD_IDS.get(name)
+    if (id) {
+      res = ctx.redirect(`${ctx.env.ZTICKER}/glitch_vore/${id}`)
+    } else {
+      // why is this a promise?
+      res = await ctx.notFound()
+    }
+    res.headers.append('Cache-Control', 's-maxage=86400')
+
+    ctx.executionCtx.waitUntil(cache.put(cacheKey, res.clone()))
   }
-  return ctx.notFound()
+  return res
 })
 
 // This has to be the fallback route to cover /vore/ and /vore
