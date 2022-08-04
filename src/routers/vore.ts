@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { Environment } from '../types'
 import { CACHE } from '../utils'
 
 const vore = new Hono<Environment>({ strict: false })

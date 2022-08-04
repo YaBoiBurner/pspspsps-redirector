@@ -7,6 +7,7 @@ import UAIssues from './data/ua-issues.json'
 import { bread, sign, sticker, vore } from './routers'
 import { getSticker } from './sticker-api-helper'
 import { redirectKey, yieldImage, yieldVideo } from './stores'
+import { Environment } from './types'
 import { CACHE } from './utils'
 
 const app = new Hono<Environment>()
@@ -43,7 +44,10 @@ app.get('/:thing', async (ctx) => {
     res = res || (await yieldImage(ctx, thing))
     res = res || ctx.redirect(ctx.env.FALLBACK_REDIRECT)
 
-    res.headers.append('Cache-Control', 's-maxage=86400')
+    // DON'T MESS WITH CACHE CONTROL HERE
+    // IT BREAKS THINGS FOR SOME REASON BEYOND MY COMPREHENSION
+    // AND I DON'T WANT TO FIGURE OUT WHY RIGHT NOW
+    // res.headers.set('Cache-Control', 'public, max-age=86400')
 
     ctx.executionCtx.waitUntil(cache.put(cacheKey, res.clone()))
   } else {

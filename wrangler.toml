@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2022-07-21"
 
 [vars]
-STICKER_API_BASE = "https://wah.rest/sticker"
+STICKER_API_BASE = "https://api.burner.gay/sticker"
 TWITTER_CARD_PROXY = "pxtwitter.com"
 FALLBACK_REDIRECT = "https://twitter.com/glitchfur"
 ZTICKER = "https://zticker.xyz"
@@ -32,3 +32,6 @@ preview_bucket_name = "glitchfur"
 # [[services]]
 # binding = "STICKER_API"
 # service = "sticker-api"
+
+# [secrets]
+# SENTRY_DSN

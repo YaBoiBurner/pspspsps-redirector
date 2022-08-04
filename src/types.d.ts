@@ -1,4 +1,6 @@
-interface Environment {
+import Toucan from 'toucan-js'
+
+interface CFEnvironment {
   REDIRECTS: KVNamespace
   DISCORD_IDS: KVNamespace
   SIGNS: KVNamespace
@@ -10,4 +12,9 @@ interface Environment {
   BUNNYPAWS: string
   // Service binding doesn't seem to work properly yet
   // STICKER_API: Fetcher
+  SENTRY_DSN: string
+}
+
+interface Environment extends CFEnvironment {
+  SENTRY: Toucan
 }

@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { jsx } from 'hono/jsx'
 import UAIssues from '../data/ua-issues.json'
+import { Environment } from '../types'
 
 const sticker = new Hono<Environment>()
 

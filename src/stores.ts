@@ -1,5 +1,6 @@
 import { Context } from 'hono'
 import UAIssues from './data/ua-issues.json'
+import { Environment } from './types'
 
 export async function redirectKey<T extends string>(
   ctx: Context<T, Environment>,
