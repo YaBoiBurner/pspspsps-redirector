@@ -4,7 +4,7 @@ compatibility_date = "2022-07-21"
 
 [vars]
 STICKER_API_BASE = "https://api.burner.gay/sticker"
-TWITTER_CARD_PROXY = "pxtwitter.com"
+TWITTER_CARD_PROXY = "fxtwitter.com"
 FALLBACK_REDIRECT = "https://twitter.com/glitchfur"
 ZTICKER = "https://zticker.xyz"
 BUNNYPAWS = "https://bunnypa.ws/api"
