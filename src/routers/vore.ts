@@ -1,6 +1,4 @@
 import { Hono } from 'hono'
-import { Environment } from '../types'
-import { CACHE } from '../utils'
 
 const vore = new Hono<Environment>({ strict: false })
 
@@ -16,26 +14,19 @@ vore.get('/:id{[0-9]+}', (ctx) => {
 })
 
 vore.get('/:name', async (ctx) => {
-  const cache = await CACHE()
-  const { origin, pathname } = new URL(ctx.req.url)
-  const cacheURL = new URL(pathname, origin)
-  const cacheKey = cacheURL.toString()
+  let res: Response | null | undefined
 
-  let res = await cache.match(cacheKey)
-  if (!res) {
-    const { name } = ctx.req.param()
-    const id = await ctx.env.DISCORD_IDS.get(name)
-    if (id) {
-      res = ctx.redirect(`${ctx.env.ZTICKER}/glitch_vore/${id}`)
-      res.headers.append('Cache-Control', 's-maxage=86400')
-    } else {
-      // why is this a promise?
-      res = await ctx.notFound()
-      res.headers.append('Cache-Control', 's-maxage=3600')
-    }
-
-    ctx.executionCtx.waitUntil(cache.put(cacheKey, res.clone()))
+  const { name } = ctx.req.param()
+  const id = await ctx.env.DISCORD_IDS.get(name)
+  if (id) {
+    res = ctx.redirect(`${ctx.env.ZTICKER}/glitch_vore/${id}`)
+    res.headers.append('Cache-Control', 's-maxage=86400')
+  } else {
+    // why is this a promise?
+    res = await ctx.notFound()
+    res.headers.append('Cache-Control', 's-maxage=3600')
   }
+
   return res
 })
 

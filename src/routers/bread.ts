@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { Environment } from '../types'
 
 export const names = [
   'burner',

@@ -27,7 +27,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "hono": "^2.2.5",
-    "toucan-js": "^2.6.1"
+    "@honojs/sentry": "^0.0.2",
+    "hono": "^2.2.5"
   }
 }

@@ -1,6 +1,4 @@
-import Toucan from 'toucan-js'
-
-interface CFEnvironment {
+interface Bindings {
   REDIRECTS: KVNamespace
   DISCORD_IDS: KVNamespace
   SIGNS: KVNamespace
@@ -15,6 +13,6 @@ interface CFEnvironment {
   SENTRY_DSN: string
 }
 
-interface Environment extends CFEnvironment {
-  SENTRY: Toucan
+interface Environment {
+  Bindings: Bindings
 }
