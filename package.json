@@ -27,7 +27,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@honojs/sentry": "^0.0.2",
+    "@honojs/sentry": "^0.0.3",
     "hono": "^2.2.5"
   }
 }
