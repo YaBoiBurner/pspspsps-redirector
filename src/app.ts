@@ -45,8 +45,6 @@ app.get('/:thing/raw', async (ctx) => {
   res = res || (await yieldImage(ctx, thing))
   res = res || ctx.redirect(ctx.env.FALLBACK_REDIRECT)
 
-  res.headers.append('Cache-Control', 's-maxage=86400')
-
   return res
 })
 
