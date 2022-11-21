@@ -2,7 +2,7 @@
   "name": "pspspsps-redirector",
   "version": "0.0.0",
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.18.0",
+    "@cloudflare/workers-types": "^4.20221111.1",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.42.1",
     "concurrently": "^7.5.0",
