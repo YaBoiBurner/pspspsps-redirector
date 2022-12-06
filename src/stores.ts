@@ -24,8 +24,12 @@ export async function yieldImage<T extends string>(
 ) {
   const image = await ctx.env.IMAGES.get(`${key}.webp`)
   if (image) {
-    ctx.header('Content-Type', 'image/webp')
-    return ctx.body(image.body, 200)
+    return new Response(image.body, {
+      status: 200,
+      headers: {
+        'Content-Type': 'image/webp',
+      },
+    })
   }
 }
 
@@ -35,7 +39,11 @@ export async function yieldVideo<T extends string>(
 ) {
   const video = await ctx.env.IMAGES.get(`${key}.mp4`)
   if (video) {
-    ctx.header('Content-Type', 'video/mp4')
-    return ctx.body(video.body, 200)
+    return new Response(video.body, {
+      status: 200,
+      headers: {
+        'Content-Type': 'video/mp4',
+      },
+    })
   }
 }
